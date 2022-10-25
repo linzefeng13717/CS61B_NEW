@@ -1,4 +1,9 @@
+package proj1a;
+
+import java.util.LinkedList;
+
 /** Performs some basic linked list tests. */
+
 public class LinkedListDequeTest {
 	
 	/* Utility method for printing out empty checks. */
@@ -83,4 +88,72 @@ public class LinkedListDequeTest {
 		addIsEmptySizeTest();
 		addRemoveTest();
 	}
-} 
+}
+
+class LinkedListDeque<T>{
+	private T[] valArray;
+	private int maxSize;
+	private int size;
+
+	public LinkedListDeque()
+	{
+		valArray=(T[])(new Object[20]);
+		maxSize=20;
+		size=0;
+	}
+
+	protected boolean isEmpty()
+	{
+		return size == 0;
+	}
+
+	public void addFirst(T front) {
+		if(size==maxSize)
+		{
+			resize();
+		}
+		if(size==0)
+		{
+			valArray[0]=front;
+		}
+		else{
+			T[] temp=(T[])new Object[maxSize];
+			temp[0]=front;
+			System.arraycopy(valArray,0,temp,1,size);
+			valArray=temp;
+		}
+		size++;
+	}
+
+	private void resize() {
+		T[] temp=(T[])new Object[2*maxSize];
+		System.arraycopy(valArray,0,temp,0,size);
+		valArray=temp;
+	}
+
+	public void addLast(T last) {
+		if(size==maxSize)resize();
+		valArray[size]=last;
+		size++;
+	}
+
+	public int size() {
+		return size;
+	}
+
+	public void printDeque() {
+		for(int i=0;i<size;i++)
+		{
+			System.out.println(valArray[i]);
+		}
+	}
+
+	public void removeFirst() {
+		for(int i=0;i<size-1;i++)
+		{
+			valArray[i]=valArray[i+1];
+		}
+		valArray[size-1]=null;
+		size--;
+	}
+}
