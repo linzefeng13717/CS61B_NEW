@@ -3,8 +3,8 @@ package hw2;
 import edu.princeton.cs.algs4.StdRandom;
 
 public class PercolationStats {
-    int[] openTimes;
-    int experimentTimes;
+    private int[] openTimes;
+    private int experimentTimes;
     public PercolationStats(int N, int T, PercolationFactory pf)   // perform T independent experiments on an N-by-N grid
     {
         if(N<=0||T<=0)throw new IllegalArgumentException("N And T Should NOT be less or equal to 0!");

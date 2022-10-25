@@ -8,7 +8,7 @@ public class Percolation {
     private boolean[][] Grid;
     private int openSiteNum;
 
-    WeightedQuickUnionUF sites;
+    private WeightedQuickUnionUF sites;
     public Percolation(int N)// create N-by-N grid, with all sites initially blocked
     {
         if(N<=0)
@@ -83,5 +83,10 @@ public class Percolation {
     public boolean percolates()              // does the system percolate?
     {
         return sites.connected(sideLen*sideLen,sideLen*sideLen+1);
+    }
+
+    public static void main(String[] args)
+    {
+        Percolation p=new Percolation(5);
     }
 }
