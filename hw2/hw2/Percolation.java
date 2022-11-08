@@ -1,6 +1,7 @@
 package hw2;
 
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
+import org.junit.Test;
 
 public class Percolation {
     private int sideLen;
@@ -20,6 +21,11 @@ public class Percolation {
         //sidelen*sidelen for bottom,sidelen*sidelen+1 for top;
     }
 
+    @Test
+    public void test()
+    {
+        String
+    }
     private int turnIntoOne_dem(int row,int col)
     {
         return row*sideLen+col;
